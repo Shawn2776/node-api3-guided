@@ -6,9 +6,13 @@ const hubsRouter = require('./hubs/hubs-router.js');
 const server = express();
 
 const logQuote = (coin) => (req,res,next) =>{
-  if(coin==="nickel" || coin==="penny" || coin==="quarter" || coin==="dime")
-  console.log(`A ${coin} saved is a ${coin} not enjoyed`)
-  next()
+  if(coin==="nickel" || coin==="penny" || coin==="quarter" || coin==="dime"){
+    console.log(`A ${coin} saved is a ${coin} not enjoyed`)
+    next()
+  }else{
+    res.json("Invalid coin")
+  }
+  
 }
 
 server.use(express.json());
