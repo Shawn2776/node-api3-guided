@@ -11,8 +11,7 @@ const logQuote = (coin) => (req,res,next) =>{
     next()
   }else{
     res.json("Invalid coin")
-  }
-  
+  }  
 }
 
 server.use(express.json());
