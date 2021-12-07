@@ -105,7 +105,7 @@ router.get('/:id/messages',checkHubId, (req, res) => {
     });
 });
 
-router.post('/:id/messages', (req, res) => {
+router.post('/:id/messages',checkHubId, (req, res) => {
   const messageInfo = { ...req.body, hub_id: req.params.id };
 
   Messages.add(messageInfo)
