@@ -8,6 +8,13 @@ const router = express.Router();
 const checkHubId = async (req,res,next)=>{
   const {id} = req.params
   const hub = await Hubs.findById(id)
+  if(!hub){
+    res.status(404).json({message:`No hub ${id}`})
+  }else{
+    next()
+  }
+
+
 }
 
 router.get('/', (req, res) => {
