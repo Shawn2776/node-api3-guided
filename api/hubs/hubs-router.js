@@ -20,6 +20,14 @@ const checkHubId = async (req,res,next)=>{
   }  
 }
 
+const checkMessage = (req,res,next)=>{
+  if(!req.body.text || !req.body.sender){
+    res.status(400).json("Text and sender required")
+  }else{
+    next()
+  }
+}
+
 router.get('/', (req, res) => {
   Hubs.find(req.query)
     .then(hubs => {
