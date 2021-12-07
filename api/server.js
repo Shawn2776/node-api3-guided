@@ -5,7 +5,10 @@ const hubsRouter = require('./hubs/hubs-router.js');
 
 const server = express();
 
-
+function logQuote(req,res,next){
+  console.log("A penny saved is a penny not enjoyed")
+  
+}
 
 
 server.use(express.json());
