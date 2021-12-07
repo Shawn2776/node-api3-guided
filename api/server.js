@@ -1,7 +1,7 @@
 const express = require('express'); // importing a CommonJS module
 const morgan = require("morgan")
 const helmet = require("helmet")
-const mw = require("./middlewares/middlewares.js")
+const {checkWord,logQuote} = require("./middlewares/middlewares.js")
 const hubsRouter = require('./hubs/hubs-router.js');
 
 const server = express();
@@ -9,11 +9,11 @@ const server = express();
 server.use(express.json());
 server.use(morgan("dev"))
 server.use(helmet())
-server.use(mw.logQuote("nickel"))
+server.use(logQuote("nickel"))
 
-server.use('/api/hubs',mw.checkWord, hubsRouter);
+server.use('/api/hubs',checkWord, hubsRouter);
 
-server.get('/',mw.checkWord, (req, res) => {
+server.get('/',checkWord, (req, res) => {
   res.send(`
     <h2>Hubs API</h2>
     <p>Welcome to the Hubs API</p>
