@@ -11,10 +11,9 @@ const checkHubId = async (req,res,next)=>{
   if(!hub){
     res.status(404).json({message:`No hub ${id}`})
   }else{
+    req.hub = hub
     next()
   }
-
-
 }
 
 router.get('/', (req, res) => {
