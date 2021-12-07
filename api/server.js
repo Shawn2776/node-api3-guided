@@ -9,11 +9,11 @@ const server = express();
 server.use(express.json());
 server.use(morgan("dev"))
 server.use(helmet())
-server.use(logQuote("nickel"))
+server.use(mw.logQuote("nickel"))
 
-server.use('/api/hubs',checkWord, hubsRouter);
+server.use('/api/hubs',mw.checkWord, hubsRouter);
 
-server.get('/',checkWord, (req, res) => {
+server.get('/',mw.checkWord, (req, res) => {
   res.send(`
     <h2>Hubs API</h2>
     <p>Welcome to the Hubs API</p>
