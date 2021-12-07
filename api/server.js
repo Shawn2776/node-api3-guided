@@ -29,7 +29,7 @@ server.use(helmet())
 
 server.use('/api/hubs', hubsRouter);
 
-server.get('/',checkWord,logQuote("nickel"), (req, res) => {
+server.get('/',checkWord,logQuote("nickels"), (req, res) => {
   res.send(`
     <h2>Hubs API</h2>
     <p>Welcome to the Hubs API</p>
