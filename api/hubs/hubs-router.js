@@ -16,9 +16,8 @@ const checkHubId = async (req,res,next)=>{
       next()
     }
   }catch(e){
-
-  }
-  
+    res.status(500).json({message:`Error:${e.message}`})
+  }  
 }
 
 router.get('/', (req, res) => {
