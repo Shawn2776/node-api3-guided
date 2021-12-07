@@ -6,7 +6,7 @@ const hubsRouter = require('./hubs/hubs-router.js');
 const server = express();
 
 const logQuote = (coin) => (req,res,next) =>{
-  console.log("A penny saved is a penny not enjoyed")
+  console.log(`A ${coin} saved is a ${coin} not enjoyed`)
   next()
 }
 
