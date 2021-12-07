@@ -10,7 +10,6 @@ function logQuote(req,res,next){
   next()
 }
 
-
 server.use(express.json());
 server.use(morgan("dev"))
 server.use(helmet())
