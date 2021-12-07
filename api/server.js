@@ -25,11 +25,11 @@ const checkWord = (req,res,next)=>{
 server.use(express.json());
 server.use(morgan("dev"))
 server.use(helmet())
-server.use(logQuote("nickel"))
+//server.use(logQuote("nickel"))
 
 server.use('/api/hubs', hubsRouter);
 
-server.get('/',checkWord, (req, res) => {
+server.get('/',checkWord,logQuote("nickel"), (req, res) => {
   res.send(`
     <h2>Hubs API</h2>
     <p>Welcome to the Hubs API</p>
