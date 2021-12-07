@@ -118,4 +118,11 @@ router.post('/:id/messages',checkHubId,checkMessage, (req, res) => {
     });
 });
 
+router.use((err,req,res,next)=>{
+  res.status(500).json({
+    message:"Error!!!!!",
+    error:err.message
+  })
+})
+
 module.exports = router;
