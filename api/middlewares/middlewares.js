@@ -14,3 +14,8 @@ const logQuote = (coin) => (req,res,next) =>{
       next()
     }
   }
+
+  module.exports = {
+      logQuote,
+      checkWord
+  }
