@@ -5,7 +5,7 @@ const hubsRouter = require('./hubs/hubs-router.js');
 
 const server = express();
 
-function logQuote(req,res,next){
+const logQuote = (coin) => (req,res,next) =>{
   console.log("A penny saved is a penny not enjoyed")
   next()
 }
@@ -13,7 +13,7 @@ function logQuote(req,res,next){
 server.use(express.json());
 server.use(morgan("dev"))
 server.use(helmet())
-server.use(logQuote)
+server.use(logQuote("nickel"))
 
 server.use('/api/hubs', hubsRouter);
 
