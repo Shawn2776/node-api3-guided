@@ -6,7 +6,7 @@ const Messages = require('../messages/messages-model.js');
 const router = express.Router();
 
 const checkHubId = (req,res,next)=>{
-  
+
 }
 
 router.get('/', (req, res) => {
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id',checkHubId, (req, res) => {
   Hubs.findById(req.params.id)
     .then(hub => {
       if (hub) {
@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id',checkHubId, (req, res) => {
   Hubs.remove(req.params.id)
     .then(count => {
       if (count > 0) {
@@ -73,7 +73,7 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id',checkHubId, (req, res) => {
   Hubs.update(req.params.id, req.body)
     .then(hub => {
       if (hub) {
@@ -91,7 +91,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.get('/:id/messages', (req, res) => {
+router.get('/:id/messages',checkHubId, (req, res) => {
   Hubs.findHubMessages(req.params.id)
     .then(messages => {
       res.status(200).json(messages);
