@@ -25,7 +25,7 @@ const checkWord = (req,res,next)=>{
 server.use(express.json());
 server.use(morgan("dev"))
 server.use(helmet())
-server.use(logQuote("nickel!"))
+server.use(logQuote("nickel"))
 
 server.use('/api/hubs', hubsRouter);
 
