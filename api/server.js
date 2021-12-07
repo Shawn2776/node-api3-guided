@@ -13,6 +13,7 @@ function logQuote(req,res,next){
 server.use(express.json());
 server.use(morgan("dev"))
 server.use(helmet())
+server.use(logQuote)
 
 server.use('/api/hubs', hubsRouter);
 
