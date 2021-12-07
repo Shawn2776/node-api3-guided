@@ -5,8 +5,9 @@ const Messages = require('../messages/messages-model.js');
 
 const router = express.Router();
 
-const checkHubId = (req,res,next)=>{
-
+const checkHubId = async (req,res,next)=>{
+  const {id} = req.params
+  const hub = await Hubs.findById(id)
 }
 
 router.get('/', (req, res) => {
