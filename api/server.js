@@ -14,6 +14,14 @@ const logQuote = (coin) => (req,res,next) =>{
   }  
 }
 
+const checkWord = (req,res,next)=>{
+  if(req.query.word && req.query.word === "turd"){
+    res.json(`${req.query.word} is bad, you can't proceed`)
+  }else{
+    next()
+  }
+}
+
 server.use(express.json());
 server.use(morgan("dev"))
 server.use(helmet())
