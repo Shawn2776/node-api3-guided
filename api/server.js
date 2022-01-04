@@ -1,10 +1,14 @@
 const express = require('express'); // importing a CommonJS module
-
+const morgan = require('morgan');
+const cors = require('cors');
+const helmet = require('helmet');
 const hubsRouter = require('./hubs/hubs-router.js');
 
 const server = express();
 
 server.use(express.json());
+server.use(cors());
+server.use(morgan('tiny'));
 
 server.use('/api/hubs', hubsRouter);
 
